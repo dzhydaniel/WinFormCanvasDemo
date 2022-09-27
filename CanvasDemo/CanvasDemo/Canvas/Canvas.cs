@@ -11,7 +11,7 @@ namespace CanvasDemo.Canvas
 {
     public delegate void LayerChangedEvent(Layer layer);
 
-    public class TimCanvas : PictureBox, IDisposable
+    public class TimCanvas : UserControl, IDisposable
     {
         public event LayerChangedEvent LayerChanged;
 
@@ -108,7 +108,7 @@ namespace CanvasDemo.Canvas
                 Viewer.MouseDown(e);
                 ElementEditor.MouseDown(e);
             }
-            this.Refresh();
+              this.Invalidate(true);
         }
 
         private void Canvas_MouseUp(object sender, MouseEventArgs e)
@@ -119,7 +119,7 @@ namespace CanvasDemo.Canvas
                 Viewer.MouseUp(e);
                 ElementEditor.MouseUp(e);
             }
-            this.Refresh();
+              this.Invalidate(true);
         }
 
 
@@ -133,7 +133,7 @@ namespace CanvasDemo.Canvas
             }
             if (e.Button != MouseButtons.None)
             {//TODO: 增加了刷新条件，尝试减少刷新来优化系统性
-                this.Refresh();
+                  this.Invalidate(true);
             }
         }
 
@@ -144,7 +144,7 @@ namespace CanvasDemo.Canvas
             {
                 Viewer.MouseWheel(e);
             }
-            this.Refresh();
+              this.Invalidate(true);
         }
 
         private void TimCanvas_MouseDoubleClick(object sender, MouseEventArgs e)
