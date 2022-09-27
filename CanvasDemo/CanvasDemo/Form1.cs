@@ -25,7 +25,7 @@ namespace CanvasDemo
         {
             var r = new Random().Next(20);
             CubeDatas.ForEach(x => x.IsError = x.Group == r);
-            timCanvas1.Refresh();
+             timCanvas1.Invalidate(true);
         }
 
         EllipseLayer EllipseLayer;
@@ -81,14 +81,14 @@ namespace CanvasDemo
             timCanvas1.SetCurrentLayer(CubeLayer);
          
 
-            timCanvas1.Refresh();
+             timCanvas1.Invalidate(true);
         }
 
         private void cLayer1_Click(object sender, EventArgs e)
         {
             cLayer1.Checked = !cLayer1.Checked;
             CubeLayer.IsVisible = cLayer1.Checked;
-            timCanvas1.Refresh();
+             timCanvas1.Invalidate(true);
         }
 
         private void cFocusBtn_Click(object sender, EventArgs e)
@@ -97,14 +97,14 @@ namespace CanvasDemo
             if (elem == null) return;
 
             timCanvas1.SetElementFocus(elem);
-            timCanvas1.Refresh();
+            timCanvas1.Invalidate(true);
         }
 
         private void cLayer2_Click(object sender, EventArgs e)
         {
             cLayer2.Checked = !cLayer2.Checked;
             EllipseLayer.IsVisible = cLayer2.Checked;
-            timCanvas1.Refresh();
+            timCanvas1.Invalidate(true);
         }
 
         private void cState_Click(object sender, EventArgs e)
